@@ -28,5 +28,20 @@ namespace BookingSimulator.Controllers
                 return BadRequest("Customer or room not founded");
             }
         }
+
+        [HttpDelete("{id}")]
+        public IActionResult DeleteBooking(int id)
+        {
+            try
+            {
+                _bookingService.Delete(id);
+                return NoContent();
+            }
+            catch(Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+
+        }
     }
 }
