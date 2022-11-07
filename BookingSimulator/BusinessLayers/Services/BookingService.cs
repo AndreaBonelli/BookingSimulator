@@ -20,5 +20,12 @@ namespace BookingSimulator.BusinessLayers.Services
         {
             return _dasBooking.Add(_mapper.Map<Booking>(booking));
         }
+
+        public Booking Update(int id, PostBookingModel pbm)
+        {
+            var booking = _mapper.Map<Booking>(pbm);
+            booking.Id = id;
+            return _dasBooking.Update(booking);
+        }
     }
 }

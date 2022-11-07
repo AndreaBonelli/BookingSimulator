@@ -3,6 +3,7 @@ using BookingSimulator.BusinessLayers.Models.Hotels;
 using BookingSimulator.BusinessLayers.Services;
 using BookingSimulator.BusinessLayers.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using System.Net.WebSockets;
 
 namespace BookingSimulator.Controllers
 {
@@ -27,6 +28,13 @@ namespace BookingSimulator.Controllers
             {
                 return BadRequest("Customer or room not founded");
             }
+        }
+
+        [HttpPut("{id}")]
+        public IActionResult UpdateBooking(int id, [FromBody] PostBookingModel pbm)
+        {
+            var updatedBooking = _bookingService.Update(id, pbm);
+            return Ok(updatedBooking);
         }
 
     }
