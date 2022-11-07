@@ -23,6 +23,13 @@ namespace BookingSimulator.Das.DasServices
             return added.Entity;              
         }
 
+        public void Delete(int id)
+        {
+            var toDelete = _context.Bookings.Single(b => b.Id == id);
+            _context.Remove(toDelete);
+            _context.SaveChanges();
+        }
+
         public Booking Update(Booking booking)
         {
             var customerToFind = _context.Customers.Single(c => c.Id == booking.CustomerId);

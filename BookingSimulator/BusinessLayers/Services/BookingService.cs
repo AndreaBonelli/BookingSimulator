@@ -21,6 +21,20 @@ namespace BookingSimulator.BusinessLayers.Services
             return _dasBooking.Add(_mapper.Map<Booking>(booking));
         }
 
+        public void Delete(int id)
+        {
+            try
+            {
+                _dasBooking.Delete(id);
+            }
+            catch
+            {
+                throw new Exception($"Problems in deleting the booking with id={id}.\n" +
+                                    $"The selected booking may not exist");
+            }
+            
+        }
+
         public Booking Update(int id, PostBookingModel pbm)
         {
             var booking = _mapper.Map<Booking>(pbm);
