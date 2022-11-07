@@ -40,7 +40,8 @@ namespace BookingSimulator.Controllers
             }
             catch(Exception e)
             {
-                return BadRequest(e.Message);
+                return BadRequest($"Problems in deleting the booking with id={id}.\n" +
+                                    $"The selected booking may not exist");
             }
 
         }

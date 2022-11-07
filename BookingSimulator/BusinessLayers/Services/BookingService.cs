@@ -23,15 +23,7 @@ namespace BookingSimulator.BusinessLayers.Services
 
         public void Delete(int id)
         {
-            try
-            {
-                _dasBooking.Delete(id);
-            }
-            catch
-            {
-                throw new Exception($"Problems in deleting the booking with id={id}.\n" +
-                                    $"The selected booking may not exist");
-            }
+            _dasBooking.Delete(id);
             
         }
 
