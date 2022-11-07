@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using BookingSimulator.BusinessLayers.Models;
-using BookingSimulator.BusinessLayers.Models.PostModels;
 
 namespace BookingSimulator.BusinessLayers.Profiles
 {

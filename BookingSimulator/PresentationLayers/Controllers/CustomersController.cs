@@ -1,5 +1,7 @@
-﻿using BookingSimulator.BusinessLayers.Models.PostModels;
+﻿using BookingSimulator.BusinessLayers.Models;
 using BookingSimulator.BusinessLayers.Services.Interfaces;
+using BookingSimulator.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookingSimulator.PresentationLayers.Controllers
