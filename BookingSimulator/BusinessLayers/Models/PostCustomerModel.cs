@@ -1,11 +1,9 @@
 ﻿namespace BookingSimulator.BusinessLayers.Models
 {
-    public class Customer
+    public class PostCustomerModel
     {
-        public int Id { get; set; }
         public string Cf { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
-
     }
 }

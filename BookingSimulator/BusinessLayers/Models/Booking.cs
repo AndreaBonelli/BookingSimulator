@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-
-namespace BookingSimulator.Models
+﻿namespace BookingSimulator.BusinessLayers.Models
 {
     public class Booking
     {

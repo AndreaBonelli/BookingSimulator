@@ -1,4 +1,5 @@
-﻿using BookingSimulator.Models;
+﻿using BookingSimulator.BusinessLayers.Models;
+using BookingSimulator.Models;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.EntityFrameworkCore;
 
