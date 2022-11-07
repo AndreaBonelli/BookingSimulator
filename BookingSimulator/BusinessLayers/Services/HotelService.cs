@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
+using BookingSimulator.BusinessLayers.Models.PostModels;
 using BookingSimulator.BusinessLayers.Services.Interfaces;
 using BookingSimulator.Das.Interfaces;
+using BookingSimulator.Models;
 
 namespace BookingSimulator.BusinessLayers.Services
 {
@@ -13,6 +15,11 @@ namespace BookingSimulator.BusinessLayers.Services
         {
             _dasHotel = dasHotel;
             _mapper = mapper;
+        }
+
+        public Hotel Create(PostHotelModel postHotelModel)
+        {
+            return _dasHotel.Add(_mapper.Map<Hotel>(postHotelModel));
         }
     }
 }
