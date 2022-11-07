@@ -28,7 +28,7 @@ builder.Services.AddScoped<IBookingService, BookingService>();
 
 builder.Services.AddAutoMapper(typeof(Program).Assembly);
 
-builder.Services.AddDbContext<BookingSimulatorContext>(option => option.UseSqlServer(@"Data Source=MATEBOOKD15;Initial Catalog=BookingSimulator;Integrated Security=True"));
+builder.Services.AddDbContext<BookingSimulatorContext>(option => option.UseSqlServer(@"server=(localdb)\mssqllocaldb;Database=BookingSimulator"));
 
 var app = builder.Build();
 
