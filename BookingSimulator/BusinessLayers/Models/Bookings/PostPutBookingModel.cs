@@ -3,7 +3,7 @@ using BookingSimulator.BusinessLayers.Models.Rooms;
 
 namespace BookingSimulator.BusinessLayers.Models.Bookings
 {
-    public class PostBookingModel
+    public class PostPutBookingModel
     {
         public int CustomerId { get; set; }
         public int RoomId { get; set; }
