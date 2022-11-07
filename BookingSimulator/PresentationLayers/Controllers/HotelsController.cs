@@ -1,6 +1,5 @@
 ﻿using BookingSimulator.BusinessLayers.Models.Hotels;
 using BookingSimulator.BusinessLayers.Services.Interfaces;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookingSimulator.PresentationLayers.Controllers
@@ -20,6 +19,12 @@ namespace BookingSimulator.PresentationLayers.Controllers
         public IActionResult AddHotel([FromBody] PostHotelModel hotel)
         {
             return Ok(_hotelService.Create(hotel));
+        }
+
+        [HttpPut("{id}")]
+        public IActionResult Update(int id, [FromBody] PutHotelModel hotel)
+        {
+            return Ok(_hotelService.Update(id, hotel));
         }
     }
 }
