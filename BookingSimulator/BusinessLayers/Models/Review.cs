@@ -6,5 +6,6 @@
         public int Stars { get; set; }
         public string? Content { get; set; }
         public int IdHotel { get; set; }
+        public Hotel Hotel { get; set; }
     }
 }

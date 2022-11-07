@@ -19,9 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="BusinessLayers\" />
-    <Folder Include="PresentationLayers\" />
-    <Folder Include="Services\" />
+    <Folder Include="BusinessLayers\Profiles\" />
   </ItemGroup>
 
 </Project>
