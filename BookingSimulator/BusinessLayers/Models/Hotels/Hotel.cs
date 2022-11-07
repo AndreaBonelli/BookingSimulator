@@ -1,4 +1,7 @@
-﻿namespace BookingSimulator.BusinessLayers.Models
+﻿using BookingSimulator.BusinessLayers.Models.Reviews;
+using BookingSimulator.BusinessLayers.Models.Rooms;
+
+namespace BookingSimulator.BusinessLayers.Models.Hotels
 {
     public class Hotel
     {

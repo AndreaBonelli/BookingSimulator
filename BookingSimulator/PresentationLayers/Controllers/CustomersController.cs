@@ -1,6 +1,5 @@
-﻿using BookingSimulator.BusinessLayers.Models;
+﻿using BookingSimulator.BusinessLayers.Models.Customers;
 using BookingSimulator.BusinessLayers.Services.Interfaces;
-using BookingSimulator.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 

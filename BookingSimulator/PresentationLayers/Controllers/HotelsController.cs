@@ -1,4 +1,4 @@
-﻿using BookingSimulator.BusinessLayers.Models.PostModels;
+﻿using BookingSimulator.BusinessLayers.Models.Hotels;
 using BookingSimulator.BusinessLayers.Services.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;

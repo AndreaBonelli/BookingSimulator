@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using BookingSimulator.BusinessLayers.Models;
+using BookingSimulator.BusinessLayers.Models.Customers;
 using BookingSimulator.BusinessLayers.Services.Interfaces;
 using BookingSimulator.Das.Interfaces;
 

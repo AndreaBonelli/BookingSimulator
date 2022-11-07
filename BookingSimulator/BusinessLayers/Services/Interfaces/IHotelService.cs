@@ -1,5 +1,4 @@
-﻿using BookingSimulator.BusinessLayers.Models.PostModels;
-using BookingSimulator.Models;
+﻿using BookingSimulator.BusinessLayers.Models.Hotels;
 
 namespace BookingSimulator.BusinessLayers.Services.Interfaces
 {
