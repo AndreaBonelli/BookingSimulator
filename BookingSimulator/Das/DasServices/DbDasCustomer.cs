@@ -8,9 +8,15 @@ namespace BookingSimulator.Das.DasServices
     {
         private readonly BookingSimulatorContext _context;
 
+        public DbDasCustomer(BookingSimulatorContext context)
+        {
+            _context = context;
+        }
+
         public Customer Add(Customer customer)
         {
             var customerToShow = _context.Customers.Add(customer);
+            _context.SaveChanges();
             return customerToShow.Entity;
         }
     }

@@ -6,16 +6,16 @@ namespace BookingSimulator.Das.DasServices
 {
     public class DbDasHotel : IDasHotel
     {
-        public readonly BookingSimulatorContext _ctx;
+        public readonly BookingSimulatorContext _context;
 
-        public DbDasHotel (BookingSimulatorContext ctx)
+        public DbDasHotel (BookingSimulatorContext context)
         {
-            _ctx = ctx;
+            _context = context;
         }
         public Hotel Add(Hotel hotel)
         {
-            var added = _ctx.Hotels.Add(hotel);
-            _ctx.SaveChanges();
+            var added = _context.Hotels.Add(hotel);
+            _context.SaveChanges();
             return added.Entity;
         }
     }
