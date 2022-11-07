@@ -1,4 +1,5 @@
-﻿using BookingSimulator.BusinessLayers.Models.Customers;
+﻿using BookingSimulator.BusinessLayers.Models.Bookings;
+using BookingSimulator.BusinessLayers.Models.Customers;
 using BookingSimulator.Das.Context;
 using BookingSimulator.Das.Interfaces;
 
@@ -13,11 +14,16 @@ namespace BookingSimulator.Das.DasServices
             _context = context;
         }
 
+        public Customer GetById(int id)
+        {
+            return _context.Customers.Single(b => b.Id == id);
+        }
         public Customer Add(Customer customer)
         {
             var customerToShow = _context.Customers.Add(customer);
             _context.SaveChanges();
             return customerToShow.Entity;
         }
+
     }
 }

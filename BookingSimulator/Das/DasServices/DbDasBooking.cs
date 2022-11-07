@@ -12,12 +12,17 @@ namespace BookingSimulator.Das.DasServices
         {
             _context = context;
         }
+        public Booking GetById(int id)
+        {
+            return _context.Bookings.Single(b => b.Id == id);
+        }
 
+        public IEnumerable<Booking> GetAll()
+        {
+            return _context.Bookings;
+        }
         public Booking Add(Booking booking)
         {
-            var customerToFind = _context.Customers.Single(c => c.Id == booking.CustomerId);
-            var roomToFind = _context.Rooms.Single(r => r.Id == booking.RoomId);
-
             var added = _context.Bookings.Add(booking);
             _context.SaveChanges();
             return added.Entity;              

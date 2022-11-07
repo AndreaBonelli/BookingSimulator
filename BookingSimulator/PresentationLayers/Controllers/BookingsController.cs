@@ -24,9 +24,17 @@ namespace BookingSimulator.Controllers
             {
                 return Ok(_bookingService.Create(booking));
             }
-            catch
+            catch(ArgumentNullException ex)
             {
                 return BadRequest("Customer or room not founded");
+            }
+            catch (InvalidOperationException ex)
+            {
+                return BadRequest("Customer or room not founded");
+            }
+            catch (ArgumentException e)
+            {
+                return BadRequest("Room not available");
             }
         }
 
