@@ -1,4 +1,4 @@
-﻿using BookingSimulator.Models;
+﻿using BookingSimulator.BusinessLayers.Models.Hotels;
 
 namespace BookingSimulator.Das.Interfaces
 {

@@ -1,4 +1,4 @@
-﻿using BookingSimulator.BusinessLayers.Models;
+﻿using BookingSimulator.BusinessLayers.Models.Customers;
 using BookingSimulator.Das.Context;
 using BookingSimulator.Das.Interfaces;
 

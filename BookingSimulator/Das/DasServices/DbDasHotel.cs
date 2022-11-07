@@ -1,6 +1,6 @@
-﻿using BookingSimulator.Das.Context;
+﻿using BookingSimulator.BusinessLayers.Models.Hotels;
+using BookingSimulator.Das.Context;
 using BookingSimulator.Das.Interfaces;
-using BookingSimulator.Models;
 
 namespace BookingSimulator.Das.DasServices
 {

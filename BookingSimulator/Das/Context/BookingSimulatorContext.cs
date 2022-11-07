@@ -1,5 +1,8 @@
-﻿using BookingSimulator.BusinessLayers.Models;
-using BookingSimulator.Models;
+﻿using BookingSimulator.BusinessLayers.Models.Bookings;
+using BookingSimulator.BusinessLayers.Models.Customers;
+using BookingSimulator.BusinessLayers.Models.Hotels;
+using BookingSimulator.BusinessLayers.Models.Reviews;
+using BookingSimulator.BusinessLayers.Models.Rooms;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.EntityFrameworkCore;
 

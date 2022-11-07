@@ -1,4 +1,4 @@
-﻿namespace BookingSimulator.BusinessLayers.Models.PostModels
+﻿namespace BookingSimulator.BusinessLayers.Models.Hotels
 {
     public class PostHotelModel
     {

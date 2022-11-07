@@ -1,8 +1,7 @@
 ﻿using AutoMapper;
-using BookingSimulator.BusinessLayers.Models.PostModels;
+using BookingSimulator.BusinessLayers.Models.Hotels;
 using BookingSimulator.BusinessLayers.Services.Interfaces;
 using BookingSimulator.Das.Interfaces;
-using BookingSimulator.Models;
 
 namespace BookingSimulator.BusinessLayers.Services
 {
