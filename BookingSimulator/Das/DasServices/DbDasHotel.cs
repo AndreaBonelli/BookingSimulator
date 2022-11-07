@@ -31,6 +31,7 @@ namespace BookingSimulator.Das.DasServices
             }
             catch
             {
+                hotel.Id = 0;
                 var added = _context.Hotels.Add(hotel);
                 _context.SaveChanges();
                 return added.Entity;
