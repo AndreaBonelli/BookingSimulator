@@ -7,7 +7,7 @@ namespace BookingSimulator.BusinessLayers.Profiles
     {
         public BookingMapperProfile()
         {
-            CreateMap<PostBookingModel, Booking>();
+            CreateMap<PostPutBookingModel, Booking>();
         }
     }
 }

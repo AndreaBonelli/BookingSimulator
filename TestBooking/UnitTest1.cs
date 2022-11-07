@@ -41,7 +41,7 @@ namespace TestBooking
 
             var response = await _sut.PostAsJsonAsync("hotels",request);
 
-            var content =  await response.Content.ReadFromJsonAsync<Hotel>();
+            var content = await response.Content.ReadFromJsonAsync<Hotel>();
 
             Assert.True(response.IsSuccessStatusCode);
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
