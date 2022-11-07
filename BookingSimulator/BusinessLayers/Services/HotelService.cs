@@ -20,5 +20,10 @@ namespace BookingSimulator.BusinessLayers.Services
         {
             return _dasHotel.Add(_mapper.Map<Hotel>(postHotelModel));
         }
+
+        public Hotel Update(int id, PutHotelModel putHotelModel)
+        {
+            return _dasHotel.Update(id, _mapper.Map<Hotel>(putHotelModel));
+        }
     }
 }

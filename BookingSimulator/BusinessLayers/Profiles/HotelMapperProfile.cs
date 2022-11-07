@@ -8,6 +8,7 @@ namespace BookingSimulator.BusinessLayers.Profiles
         public HotelMapperProfile()
         {
             CreateMap<PostHotelModel, Hotel>();
+            CreateMap<PutHotelModel, Hotel>();
         }
     }
 }
