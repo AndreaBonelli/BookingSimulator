@@ -18,24 +18,41 @@ namespace BookingSimulator.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddBooking([FromBody] PostBookingModel booking)
+        public IActionResult AddBooking([FromBody] PostPutBookingModel booking)
         {
             try
             {
-                return Ok(_bookingService.Create(booking));
+                var bookingToShow = _bookingService.Create(booking);
+                
+                return CreatedAtAction(nameof(GetDetails), new {Id = bookingToShow.Id }, bookingToShow);
             }
             catch(ArgumentNullException ex)
             {
                 return BadRequest("Customer or room not founded");
             }
-            catch (InvalidOperationException ex)
+            catch (InvalidOperationException ex2)
             {
                 return BadRequest("Customer or room not founded");
             }
-            catch (ArgumentException e)
+            catch (ArgumentException ex3)
             {
                 return BadRequest("Room not available");
             }
+        }
+
+        [HttpGet("{id}")]
+        public IActionResult GetDetails(int id)
+        {
+            try
+            {
+                var updatedBooking = _bookingService.GetById(id);
+                return Ok(updatedBooking);
+            }
+            catch(Exception e)
+            {
+                return NotFound();
+            }
+            
         }
 
         [HttpDelete("{id}")]
@@ -46,18 +63,35 @@ namespace BookingSimulator.Controllers
                 _bookingService.Delete(id);
                 return NoContent();
             }
-            catch(Exception e)
+            catch(Exception ex)
             {
-                return BadRequest($"Problems in deleting the booking with id={id}.\n" +
+                return BadRequest($"Problems in deleting the booking with id = {id}.\n" +
                                     $"The selected booking may not exist");
             }
 
         }
         [HttpPut("{id}")]
-        public IActionResult UpdateBooking(int id, [FromBody] PostBookingModel pbm)
+        public IActionResult UpdateBooking(int id, [FromBody] PostPutBookingModel booking)
         {
-            var updatedBooking = _bookingService.Update(id, pbm);
-            return Ok(updatedBooking);
+            try
+            {
+                var updatedBooking = _bookingService.Update(id, booking);
+                
+                return Ok(updatedBooking);
+            }
+            catch (ArgumentNullException ex)
+            {
+                return BadRequest("Customer or room not founded");
+            }
+            catch (InvalidOperationException ex2)
+            {
+                return BadRequest("Customer or room not founded");
+            }
+            catch (ArgumentException ex3)
+            {
+                return BadRequest("Room not available");
+            }
+            
         }
 
     }

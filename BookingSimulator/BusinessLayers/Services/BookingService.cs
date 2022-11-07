@@ -22,7 +22,7 @@ namespace BookingSimulator.BusinessLayers.Services
             _mapper = mapper;
         }
 
-        public Booking Create(PostBookingModel booking)
+        public Booking Create(PostPutBookingModel booking)
         {
             var customerToFind = _dasCustomer.GetById(booking.CustomerId);
             var roomToFind = _dasRoom.GetById(booking.RoomId);
@@ -42,16 +42,38 @@ namespace BookingSimulator.BusinessLayers.Services
             
         }
 
-        public Booking Update(int id, PostBookingModel pbm)
+        public Booking GetById(int id)
         {
-            var booking = _mapper.Map<Booking>(pbm);
-            booking.Id = id;
-            return _dasBooking.Update(booking);
+            return _dasBooking.GetById(id);
         }
 
-        private bool IsRoomAvailable(PostBookingModel booking)
+        public Booking Update(int id, PostPutBookingModel booking)
         {
-            return !_dasBooking.GetAll().Where(b => b.RoomId == booking.RoomId).
+            var customerToFind = _dasCustomer.GetById(booking.CustomerId);
+            var roomToFind = _dasRoom.GetById(booking.RoomId);
+
+            if (IsRoomAvailable(booking))
+            {
+                var bookingToUpdate = _mapper.Map<Booking>(booking);
+                try
+                {
+                    bookingToUpdate.Id = id;
+                    return _dasBooking.Update(bookingToUpdate);
+                }
+                catch(Exception ex)
+                {
+                    bookingToUpdate.Id = 0;
+                    return _dasBooking.Add(bookingToUpdate);
+                }
+                
+            }
+
+            throw new ArgumentException();
+        }
+
+        private bool IsRoomAvailable(PostPutBookingModel booking)
+        {
+            return ! _dasBooking.GetAll().Where(b => b.RoomId == booking.RoomId).
                 Any(b => b.EndDate > booking.StartDate && b.StartDate < booking.EndDate);
         }
     }

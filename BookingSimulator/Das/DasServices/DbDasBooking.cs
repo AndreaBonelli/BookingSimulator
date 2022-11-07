@@ -37,9 +37,6 @@ namespace BookingSimulator.Das.DasServices
 
         public Booking Update(Booking booking)
         {
-            var customerToFind = _context.Customers.Single(c => c.Id == booking.CustomerId);
-            var roomToFind = _context.Rooms.Single(r => r.Id == booking.RoomId);
-
             var added = _context.Bookings.Update(booking);
             _context.SaveChanges();
             return added.Entity;
