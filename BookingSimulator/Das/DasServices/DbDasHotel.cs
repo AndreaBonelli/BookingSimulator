@@ -1,6 +1,7 @@
 ﻿using BookingSimulator.BusinessLayers.Models.Hotels;
 using BookingSimulator.Das.Context;
 using BookingSimulator.Das.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace BookingSimulator.Das.DasServices
 {
@@ -19,6 +20,11 @@ namespace BookingSimulator.Das.DasServices
             return added.Entity;
         }
 
+        public IEnumerable<Hotel> GetAll()
+        {
+            return _context.Hotels;
+        }
+
         public Hotel Update(int id, Hotel hotel)
         {
             try
@@ -35,7 +41,6 @@ namespace BookingSimulator.Das.DasServices
                 _context.SaveChanges();
                 return added.Entity;
             }
-
         }
     }
 }

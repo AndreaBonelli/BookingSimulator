@@ -7,9 +7,10 @@ namespace BookingSimulator.Helpers.Validators
     {
         public PostCustomersValidator()
         {
-            RuleFor(customer => customer.Cf).Must(BeAValidCf).WithMessage($"Codice fiscale inserito non valido");
-            RuleFor(customer => customer.Name).Length(2, 20);
-            RuleFor(customer => customer.Surname).Length(2, 20);
+            RuleFor(customer => customer.Cf).Must(BeAValidCf).WithName("Cf Check: ").WithMessage($"CF must be of 16 characters");
+            RuleFor(customer => customer.Name).Length(2, 20).WithName("Name validation result: ");
+            RuleFor(customer => customer.Surname).Length(2, 20).WithName("Surname validation result: ");
+            
 
             //ALTRI ESEMPI
 
@@ -17,12 +18,12 @@ namespace BookingSimulator.Helpers.Validators
             //RuleFor(customer => customer.Email).EmailAddress();
             //RuleFor(customer => customer.CreditCard).CreditCard();
 
-            
+
             //VALIDARE COLLECTION PROPERTIES(List<string> Contacts)
 
             //RuleForEach(customer => customer.Contacts).Length(9, 11);
 
-            
+
             //VALIDARE PROPERTIES COMPLESSE 
 
             //RuleFor(customer => customer.Address).SetValidator(new AddressValidator());
@@ -38,7 +39,7 @@ namespace BookingSimulator.Helpers.Validators
 
         private bool BeAValidCf(string cf)
         {
-            if (String.IsNullOrEmpty(cf) || cf.Length < 16) 
+            if (String.IsNullOrEmpty(cf) || cf.Length != 16) 
                 return false;
             
             return true;

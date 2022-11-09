@@ -15,6 +15,12 @@ namespace BookingSimulator.PresentationLayers.Controllers
             _hotelService = hotelService;
         }
 
+        [HttpGet]
+        public IActionResult Get()
+        {
+            return Ok(_hotelService.GetAll());
+        }
+
         [HttpPost]
         public IActionResult AddHotel([FromBody] PostHotelModel hotel)
         {
