@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using BookingSimulator.BusinessLayers.Models.Hotels;
 using BookingSimulator.BusinessLayers.Services.Interfaces;
+using BookingSimulator.Das.DasServices;
 using BookingSimulator.Das.Interfaces;
 
 namespace BookingSimulator.BusinessLayers.Services
@@ -16,14 +17,25 @@ namespace BookingSimulator.BusinessLayers.Services
             _mapper = mapper;
         }
 
-        public Hotel Create(PostHotelModel postHotelModel)
+        public Hotel Create(PostPutHotelModel postHotelModel)
         {
             return _dasHotel.Add(_mapper.Map<Hotel>(postHotelModel));
         }
 
-        public Hotel Update(int id, PutHotelModel putHotelModel)
+        public Hotel Update(int id, PostPutHotelModel hotel)
         {
-            return _dasHotel.Update(id, _mapper.Map<Hotel>(putHotelModel));
+            try
+            {
+                var hotelToUpdate = _dasHotel.GetById(id);
+                hotelToUpdate.Name = hotel.Name;
+                return _dasHotel.Update(hotelToUpdate);
+            }
+            catch
+            {
+                var hoteltoUpdate = _mapper.Map<Hotel>(hotel);
+                return _dasHotel.Add(hoteltoUpdate);
+            }
+            
         }
     }
 }

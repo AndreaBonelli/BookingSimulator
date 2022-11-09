@@ -32,11 +32,10 @@ namespace TestBooking
         [Fact]
         public async void Test1()
         {
-            var request = new PostHotelModel()
+            var request = new PostPutHotelModel()
             {
                 Name = "testHotel"
             };
-            string expected = "testHotel";
 
             var response = await _sut.PostAsJsonAsync("hotels",request);
 
@@ -44,7 +43,7 @@ namespace TestBooking
 
             Assert.True(response.IsSuccessStatusCode);
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
-            Assert.Equal(expected, content.Name);
+            Assert.Equal(request.Name, content.Name);
         }
     }
 
@@ -52,10 +51,20 @@ namespace TestBooking
     {
         public Hotel Add(Hotel hotel)
         {
-            return new Hotel();
+            return new Hotel() { Name = "testHotel" };
+        }
+
+        public Hotel GetById(int id)
+        {
+            throw new NotImplementedException();
         }
 
         public Hotel Update(int id, Hotel hotel)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Hotel Update(Hotel hotelToUpdate)
         {
             throw new NotImplementedException();
         }

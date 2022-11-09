@@ -37,9 +37,9 @@ namespace BookingSimulator.Das.DasServices
 
         public Booking Update(Booking booking)
         {
-            var added = _context.Bookings.Update(booking);
+            var updatedBooking = _context.Bookings.Update(booking);
             _context.SaveChanges();
-            return added.Entity;
+            return updatedBooking.Entity;
         }
     }
 }

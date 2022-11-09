@@ -4,6 +4,7 @@ using BookingSimulator.BusinessLayers.Models.Rooms;
 using BookingSimulator.BusinessLayers.Services.Interfaces;
 using BookingSimulator.Das.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using System.Diagnostics.Tracing;
 
 namespace BookingSimulator.BusinessLayers.Services
 {
@@ -76,5 +77,6 @@ namespace BookingSimulator.BusinessLayers.Services
             return ! _dasBooking.GetAll().Where(b => b.RoomId == booking.RoomId).
                 Any(b => b.EndDate > booking.StartDate && b.StartDate < booking.EndDate);
         }
+
     }
 }

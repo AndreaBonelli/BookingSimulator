@@ -4,7 +4,7 @@ namespace BookingSimulator.BusinessLayers.Services.Interfaces
 {
     public interface IHotelService
     {
-        public Hotel Create(PostHotelModel postHotelModel);
-        public Hotel Update(int id, PutHotelModel putHotelModel);
+        public Hotel Create(PostPutHotelModel postHotelModel);
+        public Hotel Update(int id, PostPutHotelModel putHotelModel);
     }
 }

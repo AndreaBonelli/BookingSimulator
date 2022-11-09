@@ -16,15 +16,16 @@ namespace BookingSimulator.PresentationLayers.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddHotel([FromBody] PostHotelModel hotel)
+        public IActionResult AddHotel([FromBody] PostPutHotelModel hotel)
         {
             return Ok(_hotelService.Create(hotel));
         }
 
         [HttpPut("{id}")]
-        public IActionResult Update(int id, [FromBody] PutHotelModel hotel)
+        public IActionResult Update(int id, [FromBody] PostPutHotelModel hotel)
         {
             return Ok(_hotelService.Update(id, hotel));
+            
         }
     }
 }

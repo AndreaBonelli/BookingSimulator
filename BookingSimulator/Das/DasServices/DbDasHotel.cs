@@ -19,22 +19,16 @@ namespace BookingSimulator.Das.DasServices
             return added.Entity;
         }
 
-        public Hotel Update(int id, Hotel hotel)
+        public Hotel GetById(int id)
         {
-            try
-            {
-                var hotelToModify = _context.Hotels.Single(h => h.Id == id);
-                hotelToModify.Name = hotel.Name;
-                var updated = _context.Hotels.Update(hotelToModify);
-                _context.SaveChanges();
-                return updated.Entity;
-            }
-            catch
-            {
-                var added = _context.Hotels.Add(hotel);
-                _context.SaveChanges();
-                return added.Entity;
-            }
+            return _context.Hotels.Single(h => h.Id == id);
+        }
+
+        public Hotel Update(Hotel hotel)
+        {
+            var updatedHotel = _context.Hotels.Update(hotel);
+            _context.SaveChanges();
+            return updatedHotel.Entity;
 
         }
     }
