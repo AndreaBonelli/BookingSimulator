@@ -1,8 +1,11 @@
+using BookingSimulator.BusinessLayers.Models.Customers;
 using BookingSimulator.BusinessLayers.Services;
 using BookingSimulator.BusinessLayers.Services.Interfaces;
 using BookingSimulator.Das.Context;
 using BookingSimulator.Das.DasServices;
 using BookingSimulator.Das.Interfaces;
+using BookingSimulator.Helpers.Validators;
+using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -27,6 +30,7 @@ builder.Services.AddScoped<IReviewService, ReviewService>();
 builder.Services.AddScoped<IBookingService, BookingService>();
 
 builder.Services.AddAutoMapper(typeof(Program).Assembly);
+builder.Services.AddScoped<IValidator<PostCustomerModel>, PostCustomersValidator>(); 
 
 builder.Services.AddDbContext<BookingSimulatorContext>(option => option.UseSqlServer(@"server=(localdb)\mssqllocaldb;Database=BookingSimulator"));
 
